@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokochip</title>
+    <link rel="stylesheet" href="/static/style_01.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Tokochip</h1>
+        </div>
+
+        <div class="price-box">
+            <p>Harga Bongkaran</p>
+            <p>Higgs Domino: <span id="higgs_price"></span></p>
+            <p>Royal Domino: <span id="royal_price"></span></p>
+            <p><small>*Harga bisa naik atau turun sesuai harga pasar saat ini.</small></p>
+        </div>
+
+        <div class="form-box">
+            <label for="id_tujuan">Pilih ID tujuan dan kirim chip !</label>
+            <select id="id_tujuan" placeholder="pilih ID Tujuan">
+            </select>
+            <button id="copyButton" class="copy-button"><i class="ri-file-copy-2-line"></i></i></button>
+            <h2>Setelah selesai kirim. Silahkan isi data dibawah ini !</h2>
+            <label for="nickname">NickName</label>
+            <input type="text" id="nickname" placeholder="Masukkan nama akun anda">
+
+            <label for="id_pengirim">ID Pengirim</label>
+            <input type="text" id="id_pengirim" placeholder="Masukkan ID anda">
+
+            <label for="jumlah_kirim">Jumlah Kirim</label>
+            <input type="text" id="jumlah_kirim" placeholder="Masukkan bepara chip yang ingin dikirim">
+
+            <label for="nomor_dana">Nomor Dana</label>
+            <input type="tel" id="nomor_dana" inputmode="numeric" pattern="[0-9]*" placeholder="Masukkan nomor telepon" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+
+            <label for="screenshot">Kirim Screenshot</label>
+            <input type="file" id="screenshot" accept="image/*">
+
+            <button id="submitBtn">Kirim</button>
+        </div>
+    </div>
+    <script src="/static/js/script_01.js"></script>
+</body>
+</html>

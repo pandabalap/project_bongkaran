@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bongkaran HDI</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Bongkaran HDI</h1>
+        </div>
+        <div class="show-options">
+            {% for item in id_select_data %}
+            <div class="option">
+                <!-- Checkbox dengan status dari database -->
+                <input type="checkbox" id="show{{ item.id }}" {% if item.status == 'active' %}checked{% endif %}>
+        
+                <!-- Label yang berisi target_id dari database -->
+                <label for="show{{ item.id }}">{{ item.target_id }} =</label>
+        
+                <!-- Input yang berisi isi_chip dari database, yang juga dapat di-update -->
+                <input type="text" value="{{ item.isi_chip }}" data-id="{{ item.id }}">
+                
+                <!-- Tombol untuk menghapus / menonaktifkan opsi -->
+                <button class="update_isi_btn"><i class="ri-reset-left-line"></i></button>
+            </div>
+            {% endfor %}       
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID Tujuan</th>
+                        <th>Nickname</th>
+                        <th>ID Pengirim</th>
+                        <th>Jumlah Kirim</th>
+                        <th>No Dana</th>
+                        <th>Screenshot</th>
+                        <th>Create At</th>
+                        <th>Status</th>
+                        <th>Update</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    {% for record in records %}
+                    <tr>
+                        <td>{{ record.id_tujuan }}</td>
+                        <td>{{ record.nickname }}</td>
+                        <td>{{ record.id_pengirim }}</td>
+                        <td>{{ record.jumlah_kirim }}</td>
+                        <td><span class="noDana" id="noDana{{ record.id_tujuan }}" onclick="copyToClipboard('{{ record.id_tujuan }}')">
+                            {{ record.nomor_dana }}
+                        </span></td>
+                        <td><a href="{{ url_for('static', filename='uploads/' + record.screenshot) }}" target="_blank">
+                            <img src="{{ url_for('static', filename='uploads/' + record.screenshot) }}" alt="Screenshot">
+                        </a></td>
+                        <td>{{ record.created_at }}</td>
+                        <td><span id="status-{{ record.id }}" class="status {% if record.status == 'pending' %}status-pending{% elif record.status == 'diklaim' %}status-claimed{% endif %}">
+                            {{ record.status }}
+                        </span>
+                        </td>
+                        <td><button class="update-status" id="update-status{{ record.id }}" status="update-status{{ record.status }}" data-id="update-status{{ record.id }}">Update</button></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

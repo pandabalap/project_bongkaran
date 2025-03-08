@@ -1,0 +1,116 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #f79ec5, #f84fb0);
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header, .form-box, .price-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    text-align: center;
+}
+
+h1 {
+    color: #fff;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.price-box p {
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 5px 0;
+    text-align: center;
+}
+
+.form-box label {
+    color: #fff;
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-box h2{
+    font-size: 1rem;
+    text-align: center;
+    color: white;
+}
+
+.form-box select{
+    width: 86%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.form-box input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.form-box [id = "copyButton"]{
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    background: white;
+    cursor: pointer;
+    border-radius: 20px;
+    border: none;
+}
+
+.form-box [class = "ri-clipboard-line"]{
+    margin-top: 50px;
+
+}
+
+.form-box [id = "submitBtn"] {
+    width: 50%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff5394;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: 25%;
+}
+
+.form-box [id = "screenshot"] {
+    width: 45%;
+    cursor: pointer;
+}
+
+.form-box [id = "submitBtn"]:hover {
+    background-color: #ff72b2;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-box input, .form-box select, .form-box [id = "submitBtn"] {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}

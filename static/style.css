@@ -1,0 +1,161 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color:#f79ec5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 92%;
+    margin: 0 auto;
+    padding: 3%;
+}
+
+.header {
+    text-align: left;
+}
+
+h1 {
+    color: #fff;
+    background-color: #f06292;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.show-options {
+    margin-top: 20px;
+}
+
+.option {
+    display: inline-block;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px 15px 5px 5px;
+}
+
+.option input[type="text"] {
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 5px;
+    width: 50px;
+}
+
+.update_isi_btn {
+    background-color: #ee4d83;
+    color: #ffffff;
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.table-container {
+    margin-top: 30px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f06292;
+    color: white;
+}
+
+.status {
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+}
+
+.pending {
+    background-color: #ff9800;
+}
+
+.claimed {
+    background-color: #4caf50;
+}
+
+.update-status {
+    background-color: #64b5f6;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+/* Warna status */
+.status {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: #f44336;
+    color: white;
+}
+
+/* Warna merah untuk pending */
+.status-pending {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Warna hijau untuk diklaim */
+.status-claimed {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#table-body span[class="noDana"] {
+    cursor: pointer; /* Menunjukkan elemen dapat diklik */
+    color: #000000;  /* Warna teks biru */
+}
+
+#table-body span[class="noDana"]:hover {
+    color: #0056b3;  /* Warna teks saat di-hover */
+    text-decoration: underline; /* Beri garis bawah saat di-hover */
+}
+
+#table-body img{
+    height: 50px;
+    width: 90px;
+    overflow: auto;
+}
+
+@media (max-width: 768px) {
+    .option {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .buy-btn {
+        width: 100%;
+    }
+
+    th, td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .table-container {
+        width: 100%;
+    }
+}
