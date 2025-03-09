@@ -29,8 +29,8 @@ if connection:
 
 ################# Route Untuk Form User #################
 
-# Route untuk menampilkan halaman utama
-@app.route('/')
+# Route untuk menampilkan halaman form user
+@app.route('/user')
 def user():
     return render_template('user.html')
 
@@ -154,6 +154,53 @@ def submit_form():
 
     return jsonify({'status': 'success'})
 
+
+################# Route Untuk login admin #################
+
+# Route untuk menampilkan halaman login admin
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+# Route untuk menangani pengiriman form login admin
+@app.route('/login_submit', methods=['POST'])
+def login_submit_form():
+    username = request.form.get('username')
+    password = request.form.get('password')
+
+    missing_fields = [field for field, value in {
+        'username': username,
+        'password': password,
+    }.items() if not value]
+
+    if missing_fields:
+        return jsonify({'status': 'error', 'message': f'Missing fields: {", ".join(missing_fields)}'}), 400
+
+    conn = get_db_connection()
+    if conn is None:
+        return jsonify({'status': 'error', 'message': 'Koneksi database Gagal !.'}), 500
+
+    cur = conn.cursor()
+    try:
+        # Memeriksa apakah username dan password cocok dengan data di tabel login_admin
+        cur.execute(
+            """
+            SELECT * FROM login_admin WHERE username = %s AND password = %s
+            """,
+            (username, password)
+        )
+        admin = cur.fetchone()
+
+        if admin:
+            return jsonify({'status': 'success'}), 200 
+        else:
+            return jsonify({'status': 'error', 'message': 'Username atau password salah'}), 401
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({'status': 'error', 'message': f'Error: {e}'}), 500
+    finally:
+        cur.close()
+        conn.close()
 
 ################# Route Untuk Dashboard admin #################
 
