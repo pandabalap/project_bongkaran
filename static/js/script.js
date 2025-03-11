@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.json())
             .then(data => {
                 console.log(data.message);
+                alert('Isi Chip berhasil di Update!')
             })
             .catch(error => console.error('Error:', error));
         });

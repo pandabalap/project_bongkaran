@@ -158,7 +158,7 @@ def submit_form():
 ################# Route Untuk login admin #################
 
 # Route untuk menampilkan halaman login admin
-@app.route('/login')
+@app.route('/')
 def login():
     return render_template('login.html')
 
